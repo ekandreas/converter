@@ -8,7 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="blueimp/css/jquery.fileupload.css">
 </head>
-<body>
+<body ondrop="$('#ajax_uploader').show();">
 
 <div class="well" style="margin:10px;">
     <h4>Konvertering och komprimering</h4>
