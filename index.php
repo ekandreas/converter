@@ -24,7 +24,7 @@
             <i class="glyphicon glyphicon-plus"></i>
             <span>Välj filer...</span>
             <!-- The file input field used as target for the file upload widget -->
-            <input id="fileupload" type="file" name="files[]" multiple>
+            <input id="fileupload" type="file" name="files[]" multiple onclick="$('#ajax_uploader').show();">
         </span>
         <img src="/img/ajax-loader.gif" id="ajax_uploader" style="display:none;" />
     </p>
