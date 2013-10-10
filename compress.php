@@ -9,7 +9,11 @@ $dir = dirname(__FILE__) . '/server/files/' . $folder;
 $ext = substr( $file, strrpos($file, '.') );
 $new_file = str_replace( $ext, '-comp.pdf', $file );
 
-$input = "./compress.sh \"" . $dir . "\" \"" . $file . "\" \"" . $new_file . "\"";
+$command = "./compress_linux.sh";
+if( strpos( $dir, 'Users/' ) ){
+    $command = "./compress.sh";
+}
+$input = $command . " \"" . $dir . "\" \"" . $file . "\" \"" . $new_file . "\"";
 
 error_log( $input );
 

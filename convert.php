@@ -6,7 +6,11 @@ $folder = str_replace( '/' . $file, '', $url );
 $folder = substr( $folder, strrpos( $folder, '/' ) +1 );
 $dir = dirname(__FILE__) . '/server/files/' . $folder;
 
-$input = "./convert.sh \"" . $dir . "\" \"" . $file . "\"";
+$command = "./convert_linux.sh";
+if( strpos( $dir, 'Users/' ) ){
+    $command = "./convert.sh";
+}
+$input = $command . " \"" . $dir . "\" \"" . $file . "\"";
 
 error_log( $input );
 
