@@ -26,6 +26,7 @@
             <!-- The file input field used as target for the file upload widget -->
             <input id="fileupload" type="file" name="files[]" multiple>
         </span>
+        <img src="/img/ajax-loader.gif" id="ajax_uploader" style="display:none;" />
     </p>
     <p>
         Går det inte att konvertera filerna kan du skicka ett e-postmeddelande till <a href="mailto:andreas@flowcom.se">andreas@flowcom.se</a> för hjälp!
@@ -52,7 +53,11 @@
             url: url,
             apc: true,
             dataType: 'json',
+            drop: function (e, data) {
+                $('#ajax_uploader').show();
+            },
             done: function (e, data) {
+                $('#ajax_uploader').hide();
                 $.each(data.result.files, function (index, file) {
 
                     file['unique'] = cuniq();
@@ -145,6 +150,7 @@
 
                     }
                 });
+                $('#ajax_uploader').hide();
             },
             progressall: function (e, data) {
                 var progress = parseInt(data.loaded / data.total * 100, 10);
