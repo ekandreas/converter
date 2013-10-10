@@ -1,3 +1,3 @@
 #!/bin/sh
 cd "$1"
-/Applications/LibreOffice.app/Contents/MacOS/soffice --headless --convert-to pdf "$2"
+/usr/bin/libreoffice --headless --convert-to pdf "$2"
